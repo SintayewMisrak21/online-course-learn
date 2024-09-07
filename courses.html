@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Computer Training Center</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .course {
+            background-color: white;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .course img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .course h3 {
+            margin-top: 1rem;
+        }
+
+        .course p {
+            margin: 1rem 0;
+        }
+
+        .course a {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .course a:hover {
+            background-color: #45a049;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 1000px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        footer {
+            background-color: #45a049;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Courses</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+            <a href="courses.html">Courses</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="section">
+            <h2>Explore Our Courses</h2>
+            <div class="courses">
+                <div class="course">
+                    <img src="images/net.jpg" alt="Networking">
+                    <h3>Networking</h3>
+                    <p>Learn the fundamentals of computer networking and internet protocols.</p>
+                    <a href="#" onclick="openModal('networking')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/html.png" alt="HTML">
+                    <h3>HTML</h3>
+                    <p>Master the basics of HTML to create structured web content.</p>
+                    <a href="#" onclick="openModal('html')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/css.jpg" alt="CSS">
+                    <h3>CSS</h3>
+                    <p>Style your web pages with CSS to make them visually appealing.</p>
+                    <a href="#" onclick="openModal('css')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/JS.png" alt="JavaScript">
+                    <h3>JavaScript</h3>
+                    <p>Learn JavaScript to add interactive elements to your web pages.</p>
+                    <a href="#" onclick="openModal('javascript')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/php.jpg" alt="PHP">
+                    <h3>PHP</h3>
+                    <p>Develop dynamic web applications with PHP and server-side programming.</p>
+                    <a href="#" onclick="openModal('php')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/ps.jpg" alt="Photoshop">
+                    <h3>Photoshop</h3>
+                    <p>Get creative with Adobe Photoshop and learn image editing techniques.</p>
+                    <a href="#" onclick="openModal('photoshop')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/ve.jpg" alt="Video Editing">
+                    <h3>Video Editing</h3>
+                    <p>Learn to edit videos professionally using popular editing software.</p>
+                    <a href="#" onclick="openModal('videoEditing')">Start Course</a>
+                </div>
+                <div class="course">
+                    <img src="images/AI.png" alt="Adobe Illustrator">
+                    <h3>Adobe Illustrator</h3>
+                    <p>Create stunning vector graphics with Adobe Illustrator.</p>
+                    <a href="#" onclick="openModal('illustrator')">Start Course</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for courses -->
+    <div id="networkingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('networking')">&times;</span>
+            <h2>Networking Course</h2>
+            <iframe src="https://onedrive.live.com/embed?cid=YOUR_NETWORKING_COURSE_EMBED_LINK"></iframe>
+        </div>
+    </div>
+
+    <div id="htmlModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('html')">&times;</span>
+            <h2>HTML Course</h2>
+            <iframe src="https://onedrive.live.com/embed?cid=YOUR_HTML_COURSE_EMBED_LINK"></iframe>
+        </div>
+    </div>
+
+    <div id="cssModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('css')">&times;</span>
+            <h2>CSS Course</h2>
+            <iframe src="https://onedrive.live.com/embed?cid=YOUR_CSS_COURSE_EMBED_LINK"></iframe>
+        </div>
+    </div>
+
+    <!-- Add similar modals for other courses -->
+
+    <footer>
+        <p>© 2024 Computer Training Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to open the modal
+        function openModal(course) {
+            document.getElementById(course + 'Modal').style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal(course) {
+            document.getElementById(course + 'Modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
